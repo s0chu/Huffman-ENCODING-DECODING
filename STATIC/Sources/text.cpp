@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
-#include "text.h"
-#include "heap.h"
-#include "char.h"
+#include "../Headers/text.h"
+#include "../Headers/heap.h"
+#include "../Headers/char.h"
 
 using namespace std;
 
@@ -11,6 +11,7 @@ Text::Text(string s)
     R = nullptr;
     process();
     build();
+    calcAverageLen();
     encode();
 }
 
@@ -89,6 +90,8 @@ void Text::encode()
         encoded += transform(i.second);
         encoded += "#";
     }
+
+    encoded.pop_back();
 }
 
 string Text::transform(int x)
@@ -99,7 +102,68 @@ string Text::transform(int x)
     return res;
 }
 
-string Text::get()
+string Text::getEncoded()
 {
     return encoded;
+}
+
+string Text::getDecoded()
+{
+    return text;
+}
+
+Text::Text(string encoded , int x) : encoded(encoded)
+{
+    int breakingPos = encoded.find('#');
+    base = encoded.substr(0 , breakingPos);
+    cout << endl << base << '\n';
+
+    for( ; breakingPos != encoded.size() ; )
+    {
+        ++breakingPos;
+        char ch = encoded[breakingPos];
+        breakingPos++;
+        breakingPos++;
+        int fr = 0; while(breakingPos < encoded.size() && encoded[breakingPos] != '#') {fr = fr * 10 + encoded[breakingPos++] - '0';}
+        this -> fr[ch] = fr;
+    }
+
+    process();
+    build();
+    calcAverageLen();
+    decode();
+}
+
+void Text::decode()
+{
+    Trie *curr = R;
+
+    for(int i = 0 ; i < base.size() ; i++)
+    {
+        curr = curr -> ch[base[i] - '0'];
+        
+        if(curr -> c != 0)
+        {
+            text += curr -> c;
+            curr = R;
+        }
+    }
+}
+
+void Text::calcAverageLen()
+{
+    int size = 0;
+
+    for(auto i : fr)
+        size += i.second;
+
+    averageLen = 0;
+
+    for(auto i : fr)
+        averageLen += f[i.first].size() * ((long double) i.second / (long double) size);     
+}
+
+long double Text::getAverageLength()
+{
+    return averageLen;
 }

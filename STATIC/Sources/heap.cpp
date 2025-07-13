@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#include "heap.h"
-#include "char.h"
+#include "../Headers/heap.h"
+#include "../Headers/char.h"
 
 using namespace std;
 

@@ -14,14 +14,19 @@ class Text
         Heap h;
         Trie *R;
         vector < Char > alpha;
+        long double averageLen;
 
         void process();
         void build();
         void encode();
         string construct(Trie *node);
         string transform(int x);
-
+        void decode();
+        void calcAverageLen();
     public: 
         Text(string x);
-        string get();
+        Text(string x , int t);
+        string getEncoded();
+        string getDecoded();
+        long double getAverageLength();
 };
