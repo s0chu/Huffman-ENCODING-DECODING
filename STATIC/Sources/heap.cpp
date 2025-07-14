@@ -4,13 +4,13 @@
 
 using namespace std;
 
-void Heap::init(int size)
+void STATIC::Heap::init(int size)
 {
     a = new Char[size + 1];
     n = 0;
 }
 
-void Heap::Heap_Up(int ind)
+void STATIC::Heap::Heap_Up(int ind)
 {
     while(ind > 1 && a[ind / 2] < a[ind])
     {
@@ -19,7 +19,7 @@ void Heap::Heap_Up(int ind)
     }
 }
 
-void Heap::Heap_Down(int ind)
+void STATIC::Heap::Heap_Down(int ind)
 {
     do 
     {
@@ -32,31 +32,31 @@ void Heap::Heap_Down(int ind)
     }while(1);
 }
 
-void Heap::add(Char x)
+void STATIC::Heap::add(Char x)
 {
     a[++n] = x;
     Heap_Up(n);
 }
 
-Char Heap::get()
+STATIC::Char STATIC::Heap::get()
 {
     return a[1];
 }
 
-void Heap::pop()
+void STATIC::Heap::pop()
 {
     a[1] = a[n--];
     Heap_Down(1);
 }
 
-void Heap::print()
+void STATIC::Heap::print()
 {
     cout << '\n';
     for(int i = 1 ; i <= n ; i++) cout << a[i].ch;
     cout << '\n';
 }
 
-int Heap::size()
+int STATIC::Heap::size()
 {
     return n;
 }

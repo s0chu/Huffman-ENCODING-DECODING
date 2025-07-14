@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Text::Text(string s)
+STATIC::Text::Text(string s)
 {
     text = s;
     R = nullptr;
@@ -15,7 +15,7 @@ Text::Text(string s)
     encode();
 }
 
-void Text::process()
+void STATIC::Text::process()
 {
     for(auto i : text)
         ++fr[i];
@@ -30,7 +30,7 @@ void Text::process()
     }
 }
 
-void Text::build()
+void STATIC::Text::build()
 {
     while(h.size() > 1)
     {
@@ -61,7 +61,7 @@ void Text::build()
     }
 }
 
-string Text::construct(Trie *node)
+string STATIC::Text::construct(Trie *node)
 {
     string res;
 
@@ -75,7 +75,7 @@ string Text::construct(Trie *node)
     return res;
 }
 
-void Text::encode()
+void STATIC::Text::encode()
 {
     for(auto ch : text)
         base += f[ch];
@@ -94,7 +94,7 @@ void Text::encode()
     encoded.pop_back();
 }
 
-string Text::transform(int x)
+string STATIC::Text::transform(int x)
 {
     if(x == 0) return "0";
     string res = "";
@@ -102,17 +102,17 @@ string Text::transform(int x)
     return res;
 }
 
-string Text::getEncoded()
+string STATIC::Text::getEncoded()
 {
     return encoded;
 }
 
-string Text::getDecoded()
+string STATIC::Text::getDecoded()
 {
     return text;
 }
 
-Text::Text(string encoded , int x) : encoded(encoded)
+STATIC::Text::Text(string encoded , int x) : encoded(encoded)
 {
     int breakingPos = encoded.find('#');
     base = encoded.substr(0 , breakingPos);
@@ -134,7 +134,7 @@ Text::Text(string encoded , int x) : encoded(encoded)
     decode();
 }
 
-void Text::decode()
+void STATIC::Text::decode()
 {
     Trie *curr = R;
 
@@ -150,7 +150,7 @@ void Text::decode()
     }
 }
 
-void Text::calcAverageLen()
+void STATIC::Text::calcAverageLen()
 {
     int size = 0;
 
@@ -163,7 +163,7 @@ void Text::calcAverageLen()
         averageLen += f[i.first].size() * ((long double) i.second / (long double) size);     
 }
 
-long double Text::getAverageLength()
+long double STATIC::Text::getAverageLength()
 {
     return averageLen;
 }

@@ -4,16 +4,19 @@
 
 using namespace std;
 
-struct Trie 
+namespace STATIC
 {
-    Trie *ch[2];
-    Trie *par;
-    bool bit;
-    char c;
-
-    Trie(char c) : c(c)
+    struct Trie 
     {
-        ch[0] = ch[1] = par = nullptr;
-        bit = 0;
-    }
-};
+        Trie *ch[2];
+        Trie *par;
+        bool bit;
+        char c;
+
+        Trie(char c) : c(c)
+        {
+            ch[0] = ch[1] = par = nullptr;
+            bit = 0;
+        }
+    };
+}

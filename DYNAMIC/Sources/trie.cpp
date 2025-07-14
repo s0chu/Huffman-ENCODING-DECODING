@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Trie::Trie()
+DYNAMIC::Trie::Trie()
 {
     fr = 0;
     ch[0] = ch[1] = nullptr;
@@ -14,7 +14,7 @@ Trie::Trie()
     lst = new ListNode(this);
 }
 
-Trie::Trie(char c , Trie *&esc , vector < List > &lsts)
+DYNAMIC::Trie::Trie(char c , Trie *&esc , vector < List > &lsts)
 {
     //cout << c << endl;
 
@@ -59,7 +59,7 @@ Trie::Trie(char c , Trie *&esc , vector < List > &lsts)
     
 }
 
-void swap(Trie *x , Trie *y)
+void DYNAMIC::swap(Trie *x , Trie *y)
 {
     x -> parent -> ch[0] = (x -> parent -> ch[0] == x ? y : x -> parent -> ch[0]);
     x -> parent -> ch[1] = (x -> parent -> ch[1] == x ? y : x -> parent -> ch[1]);
@@ -69,12 +69,12 @@ void swap(Trie *x , Trie *y)
     y -> parent -> ch[0] = (y -> parent -> ch[0] == y ? x : y -> parent -> ch[0]);
     y -> parent -> ch[1] = (y -> parent -> ch[1] == y ? x : y -> parent -> ch[1]);
 
-    swap(x -> bit , y -> bit);
+    std::swap(x -> bit , y -> bit);
     //cout << endl << endl << x -> c << ' ' << y -> c << endl;
     std::swap(x -> parent , y -> parent);
 }
 
-string Trie::compute()
+string DYNAMIC::Trie::compute()
 {
     Trie *node = this;
     string res;

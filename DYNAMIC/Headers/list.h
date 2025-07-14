@@ -5,40 +5,43 @@
 
 using namespace std;
 
-class Trie;
-
-class ListNode 
+namespace DYNAMIC 
 {
-    private:
-        ListNode *prv , *nxt;
-        Trie *tr;
+    class Trie;
 
-    public:
-        ListNode(Trie *node) : prv(nullptr) , nxt(nullptr) , tr(node) {}
-        ListNode* prev();
-        ListNode* next();
-        Trie* get();
+    class ListNode 
+    {
+        private:
+            ListNode *prv , *nxt;
+            Trie *tr;
 
-    friend class List;
-};
+        public:
+            ListNode(Trie *node) : prv(nullptr) , nxt(nullptr) , tr(node) {}
+            ListNode* prev();
+            ListNode* next();
+            Trie* get();
 
-class List 
-{
-    private:
-        ListNode *beg , *end;
-        int counter;
+        friend class List;
+    };
 
-    public:
-        List() : beg(nullptr) , end(nullptr) , counter(0) {}
-        void push_back(ListNode *x);
-        void push_front(ListNode *x);
-        void remove(ListNode *x); ///nu dealoca
-        void insert(ListNode *x , ListNode *prv);
-        void move_front(List &l , ListNode *x);
-        void move_back(List &l , ListNode *x);
-        int size();
-        bool checkEnd(ListNode *x);
-        bool checkBeg(ListNode *x);
-        ListNode* begin();
-        ListNode* endd();
-};
+    class List 
+    {
+        private:
+            ListNode *beg , *end;
+            int counter;
+
+        public:
+            List() : beg(nullptr) , end(nullptr) , counter(0) {}
+            void push_back(ListNode *x);
+            void push_front(ListNode *x);
+            void remove(ListNode *x); ///nu dealoca
+            void insert(ListNode *x , ListNode *prv);
+            void move_front(List &l , ListNode *x);
+            void move_back(List &l , ListNode *x);
+            int size();
+            bool checkEnd(ListNode *x);
+            bool checkBeg(ListNode *x);
+            ListNode* begin();
+            ListNode* endd();
+    };
+}

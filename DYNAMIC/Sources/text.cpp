@@ -4,12 +4,12 @@
 
 using namespace std;
 
-Text::Text()
+DYNAMIC::Text::Text()
 {
    R = new Trie(0 , startChar[0] , lsts);
 }
 
-void Text::process(char c)
+void DYNAMIC::Text::process(char c)
 {
   // cout << c << ' '; fflush(stdout);
    if(startChar.count(c) == 0) encoded += startChar[0] -> compute() + ascii(c);
@@ -21,7 +21,7 @@ void Text::process(char c)
    text += c;
 }
 
-void Text::update(Trie *node)
+void DYNAMIC::Text::update(Trie *node)
 {
    while(node != nullptr)
    {
@@ -87,7 +87,7 @@ void Text::update(Trie *node)
 
 }
 
-string Text::ascii(char c)
+string DYNAMIC::Text::ascii(char c)
 {
    string res;
 
@@ -100,17 +100,17 @@ string Text::ascii(char c)
    return res;
 }
 
-string Text::getEncodedd()
+string DYNAMIC::Text::getEncodedd()
 {
    return encoded;
 }
 
-string Text::getText()
+string DYNAMIC::Text::getText()
 {
    return text;
 }
 
-void Text::printAlpha()
+void DYNAMIC::Text::printAlpha()
 {
    int sum = 0;
    long double avg = 0;

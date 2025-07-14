@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void List::push_back(ListNode *x)
+void DYNAMIC::List::push_back(ListNode *x)
 {
     if(counter == 0)
     {
@@ -18,7 +18,7 @@ void List::push_back(ListNode *x)
     counter++;
 }
 
-void List::push_front(ListNode *x)
+void DYNAMIC::List::push_front(ListNode *x)
 {
     if(counter == 0)
     {
@@ -33,7 +33,7 @@ void List::push_front(ListNode *x)
     counter++;
 }
 
-void List::remove(ListNode *x)
+void DYNAMIC::List::remove(ListNode *x)
 {
     if(x == beg) 
     {
@@ -55,19 +55,19 @@ void List::remove(ListNode *x)
     counter--;
 }
 
-void List::move_back(List &l , ListNode *x)
+void DYNAMIC::List::move_back(List &l , ListNode *x)
 {
     remove(x);
     l.push_back(x);
 }
 
-void List::move_front(List &l , ListNode *x)
+void DYNAMIC::List::move_front(List &l , ListNode *x)
 {
     remove(x);
     l.push_front(x);
 }
 
-void List::insert(ListNode *x , ListNode *prv)
+void DYNAMIC::List::insert(ListNode *x , ListNode *prv)
 {
     if(prv == nullptr) 
         push_front(x);
@@ -83,42 +83,42 @@ void List::insert(ListNode *x , ListNode *prv)
     }
 }
 
-int List::size()
+int DYNAMIC::List::size()
 {
     return counter;
 }
 
-bool List::checkBeg(ListNode *x)
+bool DYNAMIC::List::checkBeg(ListNode *x)
 {
     return x == beg;
 }
 
-bool List::checkEnd(ListNode *x)
+bool DYNAMIC::List::checkEnd(ListNode *x)
 {
     return x == end;
 }
 
-ListNode* List::begin()
+DYNAMIC::ListNode* DYNAMIC::List::begin()
 {
     return beg;
 }
 
-ListNode* List::endd()
+DYNAMIC::ListNode* DYNAMIC::List::endd()
 {
     return end;
 }
 
-ListNode* ListNode::prev()
+DYNAMIC::ListNode* DYNAMIC::ListNode::prev()
 {
     return prv;
 }
 
-ListNode* ListNode::next()
+DYNAMIC::ListNode* DYNAMIC::ListNode::next()
 {
     return nxt;
 }
 
-Trie* ListNode::get()
+DYNAMIC::Trie* DYNAMIC::ListNode::get()
 {
     return tr;
 }
