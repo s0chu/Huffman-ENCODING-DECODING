@@ -167,3 +167,12 @@ long double STATIC::Text::getAverageLength()
 {
     return averageLen;
 }
+
+void STATIC::Text::printAlpha()
+{
+    for(auto i : fr)
+        cout << i.first << " " << i.second << " " << f[i.first] << '\n';
+    
+    cout << "Average number of bits: " << averageLen << '\n';
+    cout << '\n';
+}

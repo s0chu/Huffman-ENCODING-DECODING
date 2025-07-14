@@ -31,5 +31,6 @@ namespace STATIC
             string getEncoded();
             string getDecoded();
             long double getAverageLength();
+            void printAlpha();
     };
 }

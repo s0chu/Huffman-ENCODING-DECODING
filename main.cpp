@@ -3,19 +3,11 @@
 #include "DYNAMIC/Headers/list.h"
 #include "DYNAMIC/Headers/trie.h"
 #include "DYNAMIC/Headers/text.h"
+//#include <conio.h>
 
 using namespace std;
 
 int main()
 {
-    string t = "abbcc";
-
-     DYNAMIC::Text f;
-
-     for(auto c : t) f.process(c);
-
-     cout << f.getEncodedd();
-     cout << '\n' ;f.printAlpha();
-    STATIC::Text r(t);
-     cout << r.getAverageLength(); 
+    
 }

@@ -123,5 +123,6 @@ void DYNAMIC::Text::printAlpha()
    }
 
    if(sum != text.size()) cout << "wrong";
-   cout << endl << avg << ' ';
+   cout << "Average number of bits: " << avg << '\n';
+   cout << '\n';
 }
