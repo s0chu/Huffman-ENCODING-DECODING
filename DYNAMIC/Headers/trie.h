@@ -5,11 +5,23 @@
 
 using namespace std;
 
+class Text;
+
 class Trie 
 {
     private:
         Trie *ch[2];
         Trie *parent;
+        ListNode *lst;
         bool bit;
-        List *lst;
+        bool escaped;
+        int fr;
+        char c;
+
+    public:
+        Trie(char c , Trie *&esc , vector < List > &lsts);
+        Trie();
+        string compute();
+    friend class Text;
+    friend void swap(Trie *x , Trie *y);
 };

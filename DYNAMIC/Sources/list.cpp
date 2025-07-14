@@ -5,6 +5,13 @@ using namespace std;
 
 void List::push_back(ListNode *x)
 {
+    if(counter == 0)
+    {
+        beg = end = x;
+        counter++;
+        return;
+    }
+
     end -> nxt = x;
     x -> prv = end;
     end = x;
@@ -13,6 +20,13 @@ void List::push_back(ListNode *x)
 
 void List::push_front(ListNode *x)
 {
+    if(counter == 0)
+    {
+        beg = end = x;
+        counter++;
+        return;
+    }
+
     beg -> prv = x;
     x -> nxt = beg;
     beg = x;
@@ -57,6 +71,8 @@ void List::insert(ListNode *x , ListNode *prv)
 {
     if(prv == nullptr) 
         push_front(x);
+    else if(prv == end)
+        push_back(x);
     else 
     {
         x -> prv = prv;
@@ -70,4 +86,39 @@ void List::insert(ListNode *x , ListNode *prv)
 int List::size()
 {
     return counter;
+}
+
+bool List::checkBeg(ListNode *x)
+{
+    return x == beg;
+}
+
+bool List::checkEnd(ListNode *x)
+{
+    return x == end;
+}
+
+ListNode* List::begin()
+{
+    return beg;
+}
+
+ListNode* List::endd()
+{
+    return end;
+}
+
+ListNode* ListNode::prev()
+{
+    return prv;
+}
+
+ListNode* ListNode::next()
+{
+    return nxt;
+}
+
+Trie* ListNode::get()
+{
+    return tr;
 }

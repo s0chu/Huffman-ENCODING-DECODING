@@ -15,6 +15,9 @@ class ListNode
 
     public:
         ListNode(Trie *node) : prv(nullptr) , nxt(nullptr) , tr(node) {}
+        ListNode* prev();
+        ListNode* next();
+        Trie* get();
 
     friend class List;
 };
@@ -34,4 +37,8 @@ class List
         void move_front(List &l , ListNode *x);
         void move_back(List &l , ListNode *x);
         int size();
+        bool checkEnd(ListNode *x);
+        bool checkBeg(ListNode *x);
+        ListNode* begin();
+        ListNode* endd();
 };
