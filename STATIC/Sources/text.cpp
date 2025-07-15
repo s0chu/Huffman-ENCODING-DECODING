@@ -85,7 +85,7 @@ void STATIC::Text::encode()
 
     for(auto i : fr)
     {
-        encoded += i.first;
+        encoded += transform(i.first);
         encoded += "#";
         encoded += transform(i.second);
         encoded += "#";
@@ -99,6 +99,7 @@ string STATIC::Text::transform(int x)
     if(x == 0) return "0";
     string res = "";
     while(x){res += x % 10 + '0' ; x /= 10 ; }
+    reverse(res.begin() , res.end());
     return res;
 }
 
@@ -116,13 +117,18 @@ STATIC::Text::Text(string encoded , int x) : encoded(encoded)
 {
     int breakingPos = encoded.find('#');
     base = encoded.substr(0 , breakingPos);
-    cout << endl << base << '\n';
+    //cout << endl << base << '\n';
 
     for( ; breakingPos != encoded.size() ; )
     {
         ++breakingPos;
-        char ch = encoded[breakingPos];
-        breakingPos++;
+        //char ch = encoded[breakingPos];
+        //breakingPos++;
+        char ch = 0;
+
+        for( ; encoded[breakingPos] != '#' ; breakingPos++)
+            ch = ch * 10 + encoded[breakingPos] - '0';
+
         breakingPos++;
         int fr = 0; while(breakingPos < encoded.size() && encoded[breakingPos] != '#') {fr = fr * 10 + encoded[breakingPos++] - '0';}
         this -> fr[ch] = fr;

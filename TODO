@@ -1,5 +1,7 @@
 [X] STATIC 
-[X] DYNAMIC (FGK) (suboptimal)
-[ ] console
+[ ] DYNAMIC (FGK) (suboptimal) (ENCODING [X])
+[X] console STATIC
+[ ] console DYNAMIC
 [ ] cleaner output
+
  
