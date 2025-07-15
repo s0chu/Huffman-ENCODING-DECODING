@@ -3,6 +3,7 @@
 [X] console STATIC
 [X] console DYNAMIC
 [X] cleaner output
+[ ] show all info about the encoding (code function)
 [ ] github description
     [ ] GIF / video 
     [ ] guide how to use it
