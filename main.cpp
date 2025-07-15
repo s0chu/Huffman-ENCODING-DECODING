@@ -61,6 +61,19 @@ void type_in_color(int x , string y)
 
 int main()
 {
+
+    DYNAMIC::Text f;
+    string t = "abasdfasdfasdfdsafadsfadsfadseqrqewreqwrqqewrr ytrewyjbvcnvbnzxsadrwr";
+
+    for(auto c : t) f.process(c);
+    cout << f.getEncodedd() << endl;
+    f.printAlpha();
+
+    DYNAMIC::Text F(f.getEncodedd());
+    cout << f.getDecoded();
+
+    return 0;
+
     compute_terminal_colors();
 
     bool printChoices = 0;

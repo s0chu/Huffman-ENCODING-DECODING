@@ -19,12 +19,15 @@ namespace DYNAMIC
 
             void update(Trie *node);
             string ascii(char c);
+            void decode();
 
         public:
             Text();
+            Text(string x);
             void process(char c);
             string getEncodedd();
             string getText();
+            string getDecoded();
             void printAlpha();
             //long double getAverageLen();
     };

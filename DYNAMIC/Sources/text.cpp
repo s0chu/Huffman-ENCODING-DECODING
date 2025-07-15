@@ -9,6 +9,51 @@ DYNAMIC::Text::Text()
    R = new Trie(0 , startChar[0] , lsts);
 }
 
+DYNAMIC::Text::Text(string x)
+{
+   encoded = x;
+   R = new Trie(0 , startChar[0] , lsts);
+   decode();
+}
+
+void DYNAMIC::Text::decode()
+{
+   Trie *node = R;
+
+   cout << endl;
+
+   for(int i = 0 ; i <= encoded.size() ; i++)
+   {
+      if(node -> escaped == 1)
+      {
+         char c = 0;
+
+         for(int j = i ; j < i + 8 ; j++)
+         {
+            c = c * 2 + encoded[j] - '0';
+         }
+
+         startChar[c] = new Trie(c , startChar[0] , lsts);
+         update(startChar[c]);
+         text += c;
+         i += 7;
+         node = R;
+      }
+      else if(node -> c != -1)
+      {
+         char c = node -> c;
+         text += c;
+         update(startChar[c]);
+         node = R;
+         i--;
+      }
+      else 
+      {
+         node = node -> ch[encoded[i] - '0'];
+      }
+   }
+}
+
 void DYNAMIC::Text::process(char c)
 {
   // cout << c << ' '; fflush(stdout);
@@ -106,6 +151,11 @@ string DYNAMIC::Text::getEncodedd()
 }
 
 string DYNAMIC::Text::getText()
+{
+   return text;
+}
+
+string DYNAMIC::Text::getDecoded()
 {
    return text;
 }
