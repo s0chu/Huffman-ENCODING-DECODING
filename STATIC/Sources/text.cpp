@@ -2,6 +2,7 @@
 #include "../Headers/text.h"
 #include "../Headers/heap.h"
 #include "../Headers/char.h"
+#include "../../Headers/terminal.h"
 
 using namespace std;
 
@@ -177,8 +178,23 @@ long double STATIC::Text::getAverageLength()
 void STATIC::Text::printAlpha()
 {
     for(auto i : fr)
-        cout << i.first << " " << i.second << " " << f[i.first] << '\n';
-    
-    cout << "Average number of bits: " << averageLen << '\n';
+    {
+        //cout << i.first << " " << i.second << " " << f[i.first] << '\n';
+        TERMINAL::type_in_color(TERMINAL::Colors::RED , i.first); 
+        cout << " ";
+        TERMINAL::type_in_color(TERMINAL::Colors::WHITE , i.second); 
+        cout << " ";
+        TERMINAL::type_in_color(TERMINAL::Colors::CYAN , f[i.first]); 
+        cout << '\n';
+    }
+    // cout << "Average number of bits: " << averageLen << '\n';
+    // cout << '\n';
+
+    cout << "Average number of bits: "; 
+    TERMINAL::type_in_color(TERMINAL::Colors::GREEN , averageLen);
+    cout << '\n';
+
+    cout << "Alpha size is: ";
+    TERMINAL::type_in_color(TERMINAL::Colors::YELLOW , f.size());
     cout << '\n';
 }

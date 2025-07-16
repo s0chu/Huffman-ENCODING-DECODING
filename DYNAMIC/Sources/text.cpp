@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include "../Headers/text.h"
 #include "../Headers/trie.h"
+#include "../../Headers/terminal.h"
 
 using namespace std;
 
@@ -167,12 +168,23 @@ void DYNAMIC::Text::printAlpha()
 
    for(auto i : startChar)
    {
-      cout << i.first << " " << i.second -> fr << " " << i.second -> compute() << endl;
+      //cout << i.first << " " << i.second -> fr << " " << i.second -> compute() << endl;
+      TERMINAL::type_in_color(TERMINAL::Colors::RED , (i.first == 0 ? '0' : i.first)); 
+      cout << " ";
+      TERMINAL::type_in_color(TERMINAL::Colors::WHITE , i.second -> fr); 
+      cout << " ";
+      TERMINAL::type_in_color(TERMINAL::Colors::CYAN , i.second -> compute()); 
+      cout << '\n';
+
       sum += i.second -> fr;
       avg += i.second -> compute().size() * ((long double) i.second -> fr / (long double) text.size());
    }
 
-   if(sum != text.size()) cout << "wrong";
-   cout << "Average number of bits: " << avg << '\n';
+   cout << "Average number of bits: "; 
+   TERMINAL::type_in_color(TERMINAL::Colors::GREEN , avg);
+   cout << '\n';
+
+   cout << "Alpha size is: ";
+   TERMINAL::type_in_color(TERMINAL::Colors::YELLOW , startChar.size());
    cout << '\n';
 }

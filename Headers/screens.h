@@ -172,7 +172,10 @@ namespace SCREEN
 
     void handle_info()
     {
+        if(type[Screen::STATICC] == 1) staticTexts.back().printAlpha();
+        if(type[Screen::DYNAMICC] == 1) dynamicTexts.back().printAlpha();
 
+        end_of_program();
     }
 
     void info()
