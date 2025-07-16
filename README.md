@@ -14,4 +14,4 @@ Methods used:
   2. Start ***starter.sh***:  
 ### `bash starter.sh`
   3. Follow the console for information
-[▶️ Demo](Assets/demo.gif)
+![▶️ Demo](Assets/demo.gif)
