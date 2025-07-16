@@ -167,7 +167,7 @@ namespace SCREEN
         
         if(ch != 'R' && ch != 'B') ch = 'R';
         if(ch == 'R') printOnScreen[Screen::INPUT] = 0;
-        if(ch == 'B') printOnScreen[Screen::METHOD] = 0;
+        if(ch == 'B') printOnScreen[Screen::INFO] = 0;
     }
 
     void handle_info()
