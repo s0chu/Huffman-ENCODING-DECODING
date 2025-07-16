@@ -14,4 +14,4 @@ Methods used:
   2. Start ***starter.sh***:  
 ### `bash starter.sh`
   3. Follow the console for information
-[▶️ Watch the demo on YouTube](https://youtu.be/9ThTDuB-9l4)
+[▶️ Demo](Assets/demo.gif)
