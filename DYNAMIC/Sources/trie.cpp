@@ -16,8 +16,6 @@ DYNAMIC::Trie::Trie()
 
 DYNAMIC::Trie::Trie(char c , Trie *&esc , vector < List > &lsts)
 {
-    //cout << c << endl;
-
     this -> c = c;
 
     if(c == 0)
@@ -50,7 +48,7 @@ DYNAMIC::Trie::Trie(char c , Trie *&esc , vector < List > &lsts)
         esc -> escaped = 0;
 
         esc = esc -> ch[0];
-        //cout << "start" << endl << endl << esc -> compute() << endl; fflush(stdout);
+
         if(fr == lsts.size()) {List aux; lsts.push_back(aux);}
         lsts[fr].push_front(esc -> lst);
         lsts[fr].insert(lst , esc -> lst);
@@ -64,13 +62,10 @@ void DYNAMIC::swap(Trie *x , Trie *y)
     x -> parent -> ch[0] = (x -> parent -> ch[0] == x ? y : x -> parent -> ch[0]);
     x -> parent -> ch[1] = (x -> parent -> ch[1] == x ? y : x -> parent -> ch[1]);
 
-    //cout << "blank" << endl;
-
     y -> parent -> ch[0] = (y -> parent -> ch[0] == y ? x : y -> parent -> ch[0]);
     y -> parent -> ch[1] = (y -> parent -> ch[1] == y ? x : y -> parent -> ch[1]);
 
     std::swap(x -> bit , y -> bit);
-    //cout << endl << endl << x -> c << ' ' << y -> c << endl;
     std::swap(x -> parent , y -> parent);
 }
 
@@ -79,15 +74,12 @@ string DYNAMIC::Trie::compute()
     Trie *node = this;
     string res;
 
-    //cout << 1234; fflush(stdout);
-    
     while(node -> parent != nullptr)
     {
         res += node -> bit + '0';
         node = node -> parent;
     }
 
-   // cout << "DONEcompute" << endl;
     reverse(res.begin() , res.end());
     return res;
 }

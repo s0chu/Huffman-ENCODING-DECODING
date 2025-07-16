@@ -57,11 +57,9 @@ void DYNAMIC::Text::decode()
 
 void DYNAMIC::Text::process(char c)
 {
-  // cout << c << ' '; fflush(stdout);
    if(startChar.count(c) == 0) encoded += startChar[0] -> compute() + ascii(c);
    else encoded += startChar[c] -> compute();
  
-   //cout << c << ' '; fflush(stdout);
    if(startChar.count(c) == 0) startChar[c] = new Trie(c , startChar[0] , lsts);
    update(startChar[c]);
    text += c;
@@ -71,9 +69,6 @@ void DYNAMIC::Text::update(Trie *node)
 {
    while(node != nullptr)
    {
-      //cout << 1 << ' '; fflush(stdout);
-      //cout << node << ' '; fflush(stdout);
-
       int fr = node -> fr;
       ListNode *l = node -> lst;
 
@@ -92,18 +87,11 @@ void DYNAMIC::Text::update(Trie *node)
       }
       else if(lsts[fr].checkEnd(l))
       {
-
-        //cout << 3 << ' '; fflush(stdout);
-
          if(fr + 1 == lsts.size()) {List aux; lsts.push_back(aux);}
          lsts[fr].move_front(lsts[fr + 1] , l);
          node = node -> parent;
          continue;
       }
-
-      //cout << 4 << ' '; fflush(stdout);
-
-     // if(lsts.size() > 2) cout << lsts[1].endd() -> get() -> c << endl ; fflush(stdout);
 
       ListNode *prv = l -> prev();
       ListNode *end = lsts[fr].endd();
@@ -113,24 +101,14 @@ void DYNAMIC::Text::update(Trie *node)
       lsts[fr].remove(end);
       lsts[fr].insert(end , prv);
 
-      //cout << 5 << ' '; fflush(stdout);
 
       if(l -> get() -> parent != end -> get())
       {
-
-         //cout << 6 << ' '; fflush(stdout);
-        // cout << l -> get() -> parent << endl << end -> get() << endl << lsts[fr].begin() -> get() << endl;
-
          swap(l -> get() , end -> get());
-
-         //cout << 8 << ' ' << end -> get() -> c ; fflush(stdout);
       } 
 
       node = node -> parent;
    }
-
-   //cout << "\nDONE\n";
-
 }
 
 string DYNAMIC::Text::ascii(char c)
@@ -168,7 +146,6 @@ void DYNAMIC::Text::printAlpha()
 
    for(auto i : startChar)
    {
-      //cout << i.first << " " << i.second -> fr << " " << i.second -> compute() << endl;
       TERMINAL::type_in_color(TERMINAL::Colors::RED , (i.first == 0 ? '0' : i.first)); 
       cout << " ";
       TERMINAL::type_in_color(TERMINAL::Colors::WHITE , i.second -> fr); 

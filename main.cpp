@@ -8,7 +8,6 @@ using namespace std;
 
 int main()
 {
-
     TERMINAL::compute_terminal_colors();
     SCREEN::cast_functions();
     SCREEN::printOnScreen[Screen::INPUT] = 0;
@@ -19,6 +18,4 @@ int main()
             if(SCREEN::printOnScreen[i] == 0)
                 SCREEN::fnc[i]();
     }
-
-   
 }

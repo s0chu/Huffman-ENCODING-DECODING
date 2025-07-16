@@ -38,8 +38,6 @@ void STATIC::Text::build()
         Char v2 = h.get(); h.pop();
         Char v1 = h.get(); h.pop();
         Char v0 = {0 , v1.fr + v2.fr};
-        
-       // cout << v1.ch << ' ' << v2.ch << '\n';
 
         v0.node -> ch[0] = v1.node;
         v0.node -> ch[1] = v2.node;
@@ -58,7 +56,6 @@ void STATIC::Text::build()
     for(auto &i : alpha)
     {
         f[i.ch] = construct(i.node);
-        //cout << f[i.ch] << '\n';
     }
 }
 
@@ -118,13 +115,10 @@ STATIC::Text::Text(string encoded , int x) : encoded(encoded)
 {
     int breakingPos = encoded.find('#');
     base = encoded.substr(0 , breakingPos);
-    //cout << endl << base << '\n';
 
     for( ; breakingPos != encoded.size() ; )
     {
         ++breakingPos;
-        //char ch = encoded[breakingPos];
-        //breakingPos++;
         char ch = 0;
 
         for( ; encoded[breakingPos] != '#' ; breakingPos++)
@@ -179,7 +173,6 @@ void STATIC::Text::printAlpha()
 {
     for(auto i : fr)
     {
-        //cout << i.first << " " << i.second << " " << f[i.first] << '\n';
         TERMINAL::type_in_color(TERMINAL::Colors::RED , i.first); 
         cout << " ";
         TERMINAL::type_in_color(TERMINAL::Colors::WHITE , i.second); 
@@ -187,8 +180,6 @@ void STATIC::Text::printAlpha()
         TERMINAL::type_in_color(TERMINAL::Colors::CYAN , f[i.first]); 
         cout << '\n';
     }
-    // cout << "Average number of bits: " << averageLen << '\n';
-    // cout << '\n';
 
     cout << "Average number of bits: "; 
     TERMINAL::type_in_color(TERMINAL::Colors::GREEN , averageLen);
