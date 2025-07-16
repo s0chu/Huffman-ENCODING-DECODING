@@ -15,3 +15,11 @@ Methods used:
 ### `bash starter.sh`
   3. Follow the console for information
 ![▶️ Demo](Assets/demo.gif)
+
+# DETAILS
+## STATIC version
+Uses the classical and optimal version for minimizing the average number of bits
+Max Code-Word can have a length of ***|Alpha| - 1*** characters, where ***Alpha*** represents the alphabet
+
+Time complexity: *O(|Text| * |Alpha| * log(|ALPHA|))
+## DYNAMIC version
