@@ -21,5 +21,7 @@ Methods used:
 Uses the classical and optimal version for minimizing the average number of bits
 Max Code-Word can have a length of ***|Alpha| - 1*** characters, where ***Alpha*** represents the alphabet
 
-Time complexity: *O(|Text| * |Alpha| * log(|ALPHA|))
+Time complexity: `O(|Text| · |Alpha| · log(|Alpha|))`
 ## DYNAMIC version
+Uses 1 traversal of the source information
+Time complexity: `O(|Text| · |Alpha|)`
