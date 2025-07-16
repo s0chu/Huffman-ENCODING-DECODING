@@ -4,8 +4,8 @@
 [X] console DYNAMIC
 [X] cleaner output
 [X] show all info about the encoding (code function)
-[ ] github description
-    [ ] GIF / video 
-    [ ] guide how to use it
-    [ ] presenting all the functionalities
+[X] github description
+    [X] GIF / video 
+    [X] guide how to use it
+    [X] presenting all the functionalities
     
