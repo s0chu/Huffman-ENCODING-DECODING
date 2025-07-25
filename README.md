@@ -24,6 +24,7 @@ Max Code-Word can have a length of ***|Alpha| - 1*** characters, where ***Alpha*
 Encoding Format: `code#ascii(ch_1)#fr_ch_1#...#ascii(ch_|Alpha|)#fr_ch_|Alpha|`, where *ascii(ch)* is the base 10 of the ascii code of ch
 
 Example: The encoding of ***Hello!!!!!!*** is **110101100100111000000#33#6#72#1#101#1#108#2#111#1**
+
 Time complexity: `O(|Text| · |Alpha| · log(|Alpha|))`
 ## DYNAMIC version
 Uses 1 traversal of the source information
