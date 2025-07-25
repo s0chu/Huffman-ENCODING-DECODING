@@ -29,5 +29,6 @@ Time complexity: `O(|Text| · |Alpha| · log(|Alpha|))`
 Uses 1 traversal of the source information
 Every new character is composed in the encoding of *ESC encoding* + ascii 8 bit of the character
 
-Example: The encoding of ***abccd*** is **01100001 0 01100010 00 01100011 1011 00 01100100** which simplifies into **a esc b esc c 1011 esc d**
+Example: The encoding of ***abccd*** is **01100001 0 01100010 00 01100011 1011 00 01100100**, which simplifies into **a esc b esc c 1011 esc d**
+
 Time complexity: `O(|Text| · |Alpha|)`
