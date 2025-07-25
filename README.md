@@ -21,9 +21,13 @@ Methods used:
 Uses the classical and optimal version for minimizing the average number of bits
 Max Code-Word can have a length of ***|Alpha| - 1*** characters, where ***Alpha*** represents the alphabet
 
-Encoding Format: code#ch<sub>1</sub>#fr_ch<sub>1</sub>#...#ch<sub>Alpha</sub>#fr_ch<sub>Alpha</sub>
+Encoding Format: `code#ascii(ch_1)#fr_ch_1#...#ascii(ch_|Alpha|)#fr_ch_|Alpha|`, where *ascii(ch)* is the base 10 of the ascii code of ch
+
+Example: The encoding of ***Hello!!!!!!*** is **110101100100111000000#33#6#72#1#101#1#108#2#111#1**
 Time complexity: `O(|Text| · |Alpha| · log(|Alpha|))`
 ## DYNAMIC version
 Uses 1 traversal of the source information
 Every new character is composed in the encoding of *ESC encoding* + ascii 8 bit of the character
+
+Example: The encoding of ***abccd*** is **01100001 0 01100010 00 01100011 1011 00 01100100** which simplifies into **a esc b esc c 1011 esc d**
 Time complexity: `O(|Text| · |Alpha|)`
